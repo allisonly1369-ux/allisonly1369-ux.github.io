@@ -3,108 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Webpage Title (will show on tab) -->
     <title>Professional Portfolio</title>
+
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        /* Basic styling for the page */
+        :root {
+            --lavender-light: #f4edff;
+            --lavender: #c9b6ff;
+            --lavender-dark: #9d85ff;
+            --text-main: #2b2b2b;
+            --white: #ffffff;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
+            font-family: "Poppins", Arial, sans-serif;
+            background: var(--lavender-light);
+            color: var(--text-main);
             text-align: center;
         }
+
+        header {
+            background: linear-gradient(135deg, var(--lavender), var(--lavender-dark));
+            color: var(--white);
+            padding: 2rem 1rem;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 12px rgba(120, 90, 180, 0.25);
+        }
+
+        /* BUTTON NAVIGATION */
         nav {
-            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
+
+        nav button {
+            background: var(--white);
+            color: var(--lavender-dark);
+            border: none;
+            padding: 0.7rem 1.4rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
         }
+
+        nav button:hover {
+            background: var(--lavender-dark);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(120, 90, 180, 0.3);
+        }
+
+        /* SECTIONS (HIDDEN BY DEFAULT) */
         section {
+            display: none;
+            background: var(--white);
+            margin: 2rem auto;
             padding: 2rem;
-            border-bottom: 1px solid #ddd;
+            width: 85%;
+            max-width: 900px;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(150, 120, 200, 0.15);
+            animation: fadeIn 0.4s ease;
+            text-align: left;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--lavender-dark);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
         footer {
             text-align: center;
-            padding: 1rem;
-            background: #333;
-            color: #fff;
+            padding: 1.5rem;
+            background: var(--lavender-dark);
+            color: var(--white);
+            margin-top: 3rem;
         }
     </style>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
 </head>
+
 <body>
-    <!-- Header Section -->
+
     <header>
         <h1>Welcome to My Portfolio</h1>
+
         <nav>
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#credentials">Credentials</a>
-            <a href="#contact">Contact Info</a>
+            <button onclick="showSection('about')">About Me</button>
+            <button onclick="showSection('projects')">Projects</button>
+            <button onclick="showSection('credentials')">Credentials</button>
+            <button onclick="showSection('contact')">Contact Info</button>
         </nav>
     </header>
 
-    <!-- About Me Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>
-            <!-- Add a brief introduction about yourself here -->
-            Hello! My name is [Your Name]. I am passionate about [your interests or profession]. 
-            Welcome to my portfolio website!
-        </p>
+        <p>Hello! My name is Allison Ly, and I am currently a student at Patrick Henry High School. 
+        I have been taking engineering classes for the past three years and computer science for two years. 
+        I have a strong interest in engineering and love exploring how things work. 
+        Welcome to my portfolio website!</p>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <p>
-            <!-- Add a list or description of your projects here -->
-            Here are some of the projects I have worked on:
-        </p>
         <ul>
-            <li>Project 1: [Brief description] <a href="[link to project repository]" target="_blank">[Project repository]</a></li>
-            <li>Project 2: [Brief description] <a href="[link to project repository]" target="_blank">[Project repository]</a></li>
+            <li>
+                <strong>AP CSA Virtual Pet Project</strong> – A Java-based simulation where users care for and interact with a virtual pet. 
+                I collaborated with other students to design and implement features such as feeding, playing, and health management.
+                <br>
+                <a href="https://github.com/giannaRR/AP-CSA-Virtual-Pet-Project" target="_blank">View Project</a>
+            </li>
+
+            <li>
+                <strong>Final AP CSA Project – Budget Tracker</strong>  
+                A Java application that helps users track monthly spending, categorize transactions, and analyze financial habits.
+                <br>
+                <a href="https://github.com/phAPCSAperiod2/final-project-428320-hub" target="_blank">View Project</a>
+            </li>
         </ul>
     </section>
 
-    <!-- Credentials Section -->
     <section id="credentials">
         <h2>Credentials</h2>
-        <p>
-            <!-- Add your credentials, certifications, or achievements here -->
-            I have earned the following certifications and achievements:
-        </p>
         <ul>
             <li>Certification 1: [Details]</li>
             <li>Certification 2: [Details]</li>
             <li>Certification 3: [Details]</li>
-            <!-- Add images of your certification digital badges -->
         </ul>
     </section>
 
-    <!-- Contact Info Section -->
     <section id="contact">
         <h2>Contact Info</h2>
-        <p>
-            <!-- Add your contact information here -->
-            Feel free to reach out to me:
-        </p>
         <ul>
-            <li>Email: [your-email@example.com]</li>
-            <li>LinkedIn: <a href="[your-linkedin-profile]" target="_blank">[Your LinkedIn]</a></li>
+            <li>Email: <a href="mailto:allisonly1369@gmail.com">allisonly1369@gmail.com</a></li>
         </ul>
     </section>
 
-    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2026 Allison Ly. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
